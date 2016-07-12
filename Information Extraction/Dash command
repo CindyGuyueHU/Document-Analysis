@@ -1,0 +1,8 @@
+# 3.Train
+crf_learn examples/template-example conll2002/esp.train modleExample
+# 4 Test
+crf_test -m modleExample conll2002/esp.testa
+# 5
+nano conll-eval.pl
+crf_test -m modleExample conll2002/esp.testa > predicted.txt
+perl conll-eval.pl -d "\t" < predicted.txt

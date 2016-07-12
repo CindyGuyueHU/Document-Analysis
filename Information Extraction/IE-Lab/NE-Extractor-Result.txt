@@ -1,0 +1,19 @@
+Location
+	Cardiff	1
+	Holanda	1
+	Francia	1
+	City	1
+
+Organization
+
+Person
+	Lars	1
+	Islandia	1
+	Einar	1
+	Gunnarsson	1
+	Lagerbäck	1
+
+Misc
+	de	1
+	Eurocopa	1
+

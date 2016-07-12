@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="CRF++/java"/>
+	<classpathentry kind="src" path="NLPTools/src"/>
+	<classpathentry kind="lib" path="NLPTools/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/jaws-bin.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/junit-4.1.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/jwnl.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/jwpl_v05b.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/lingpipe-3.9.1.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/lucene-core-2.4.0.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/maxent-2.5.2.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/nekohtml-1.9.11.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/opencsv-2.0.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/opennlp-0.9.0.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/opennlp.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/openNLPtools.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/snowball_stemmer.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/stanford-parser-2008-10-26.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/trove.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/twitter4j-async-2.2.6.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/twitter4j-core-2.2.6.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/twitter4j-media-support-2.2.6.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/twitter4j-stream-2.2.6.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="NLPTools/lib/xml-apis.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
