@@ -1,0 +1,12 @@
+COMP6490 Assignment 2
+
+Guyue HU
+u5608260
+
+/src: The source code for Q1
+ANSWERS.pdf: Answers to Q2-Q5
+
+
+
+For Q1, the C-value can be calculated by running KeyphraseExtractor.java
+The path of data should be configured by RUN->configuration
