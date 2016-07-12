@@ -1,0 +1,488 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:a2b22a13159f519983b22aa543de2575c63fd84c6fa5f0d35472e284630a707c"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**Student first name:** *put your first name here* `(put two spaces here to pass to new line)`  \n",
+      "**Student last name:** *put your last name here*  \n",
+      "**Student ANU UNI ID:** *put your UNI id here*"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "COMP4650 Social Media Assignment Submission (10 points)\n",
+      "==="
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "1. Assignment questions related to tutorial 1: Constructing and analyzing a social network\n",
+      "---"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "This initial code is necessary for loading into this notebook's Python kernel the object necessary for this part of the assignment. Run the next cell before starting to work on the assignment questions below."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "# necessary imports\n",
+      "import csv\n",
+      "import urllib2\n",
+      "import networkx as nx\n",
+      "\n",
+      "# opening a local CSV file\n",
+      "to_read = file(\"./dataset.csv\")  #use this line for a locally downloaded file\n",
+      "# or reading it directly from the specified URL\n",
+      "# url = 'http://rizoiu.eu/sna-lab-ipython/dataset.csv'\n",
+      "# to_read = urllib2.urlopen(url)\n",
+      "reader = csv.reader(to_read)\n",
+      "\n",
+      "#  construct the networkx graph\n",
+      "G = nx.Graph()\n",
+      "for line in reader:\n",
+      "    if line[0] not in G:  G.add_node(line[0])\n",
+      "    if line[1] not in G:  G.add_node(line[1])\n",
+      "    G.add_edge(line[0], line[1])"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 4
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #1.1:** Find another way of determining the number of users, by applying a (networkx) graph method."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 5
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.5 points) Assignment question #1.2:** What is the minimum number of introductions required for the user `'137056623'` to reach any other user? "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 6
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.5 points) Assignment question #1.3:** What is the minimum number of introductions required for the any user to reach any other user in the  network?  \n",
+      "\n",
+      "**HINT:** study the `shortest_path_length` method description."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.5 points) Assignment question #1.4:** The _diameter_ $d$ of a graph is the maximum eccentricity of any node, $d = \\max_{v} \\epsilon(v)$. Give two ways to compute the diameter of the social network G (one using the calculated eccentricity values calculated earlier and another one using the dedicated `networkx` function)."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.5 points) Assignment question #1.5:** Determine ALL most central node(s) and ALL most central edge(s), with respect to the node and edge betweenes centrality. Remember that two or more nodes/edges may have the same centrality score and they ALL need to be determined for this assignment.  \n",
+      "**Hint:** `networkx` already contains dedicated function to compute node and edge betweenness centrality scores."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "2. Assignment questions related to the tutorial 2: constructing a network from real data\n",
+      "---"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #2.1:** Starting from [the same bzipped JSON twitter dataset](http://rizoiu.eu/sna-lab-ipython/twitter-dump.json.bz2), construct the social graph based on the reply relation. Analyse (as shown in *Step 3*) which fields you require and give the Python code necessary for constructing the network.  \n",
+      "**NOTE:** all the subsequent questions of this subsection are to be solved on the graph constructed at this question."
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "\"# cell for analysis of required fields\""
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code for question.\n",
+      "DG = nx.DiGraph()\n",
+      "\n",
+      "# code for constructing the Directed Graph `DG`"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #2.2:** How many nodes and edges do you have in the resulted reply graph?"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #2.3:** Using the `networkx` functions, filter the social graph to its *giant connected component*. \n",
+      "Calculate for this new graph: i) the number of nodes, ii) the number of edges, iii) the radius and iv) the diameter.  \n",
+      "**HINT:** You can either construct a new graph which contains only the nodes and edges in the *giant connected component* or you can remove from your initial graph all the nodes and edges belonging to the other connected components.  \n",
+      "**NOTE:** This question should be solved on the UNDIRECTED version of the social graph. Considering that *DG* is the constructed directed networkx graph, do:"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# create an undirected copy of our graph\n",
+      "G = DG.to_undirected()\n",
+      "\n",
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #2.4:** This assignment question is to calculate iterativelly the basic form of the PageRank on the reply social graph constructed previously. Considering that *DG* is the constructed directed networkx graph constructed at the **Assignment questions #2.1**. We will construct the *PageRank* on the largest [*weakly connected component*](http://en.wikipedia.org/wiki/Connectivity_%28graph_theory%29). This is constructed as shown hereafter.\n",
+      "Your job is to compute the PageRank, using the algorithm provided in the tutorial and exemplified in the lecture notes.\n",
+      "Use a maximum of $maxiter = 20$ iterations."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import operator\n",
+      "from itertools import islice\n",
+      "\n",
+      "# get the list of weakly connected components, sorted by size\n",
+      "omp_List = sorted(nx.weakly_connected_component_subgraphs(DG), key = len, reverse=True)\n",
+      "\n",
+      "# we want the first component, the biggest\n",
+      "WCDG = omp_List[0]\n",
+      "\n",
+      "# get the number of nodes of the graph\n",
+      "n = len(WCDG.nodes())\n",
+      "\n",
+      "# initialize the PR at moment 0 using a dictionary of pairs {node : score}\n",
+      "PR = {}\n",
+      "for node in WCDG.nodes():\n",
+      "    PR[node] = 1.0/n\n",
+      "\n",
+      "# initialize variables\n",
+      "no_iter=0     # current iteration\n",
+      "iter_max=20   # maximum number of iterations\n",
+      "d = 0.7       # decay factor\n",
+      "\n",
+      "while no_iter < iter_max: # iterate until maximum iterations\n",
+      "    # at each iteration, we compute a new version of the PageRank for each node\n",
+      "    new_PR = {}\n",
+      "    no_iter = no_iter + 1\n",
+      "\n",
+      "    # calculate the PageRank of each node (`new_PR[node]`), based on the previous values (`PR[other_nodes]`)\n",
+      "    for node in WCDG.nodes():\n",
+      "        ## code for calculating new_PR[node].\n",
+      "\n",
+      "    # at the end of iteration, replace old values of PR with the new ones\n",
+      "    PR = new_PR\n",
+      "\n",
+      "# even if a dictionary is not sorted (it is just a collection) we sort it so that the next\n",
+      "# printing at the screen shows some interesting values\n",
+      "sorted_PR = sorted(PR.iteritems(), key=operator.itemgetter(1), reverse=True)\n",
+      "\n",
+      "# and print it out the first 10 elements\n",
+      "dict(islice(sorted_PR, 10))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "IndentationError",
+       "evalue": "expected an indented block (<ipython-input-13-230b3b581c42>, line 33)",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-13-230b3b581c42>\"\u001b[0;36m, line \u001b[0;32m33\u001b[0m\n\u001b[0;31m    PR = new_PR\u001b[0m\n\u001b[0m     ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block\n"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "3. Assignment questions related to the tutorial 3: sentiment analysis\n",
+      "---"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "The following code is necessary to define the sentiment scoring function that was constructed in the tutorial. Run this before continuing with the assignments:"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from nltk.stem.wordnet import WordNetLemmatizer\n",
+      "import nltk\n",
+      "\n",
+      "# define the lemmatizer\n",
+      "lmtzr = WordNetLemmatizer()\n",
+      "\n",
+      "# read the positive and negative lexicon in lists of words\n",
+      "positive_words = [lmtzr.lemmatize(line.strip().decode('utf-8')) for line in open('sentiment-lexicon-positive-words.txt')]\n",
+      "negative_words = [lmtzr.lemmatize(line.strip().decode('utf-8')) for line in open('sentiment-lexicon-negative-words.txt')]\n",
+      "\n",
+      "# define the function that computes the sentiment score\n",
+      "def get_sentiment_score(text):\n",
+      "    # tokenize and lemmatize the current tweet\n",
+      "    tokens = nltk.word_tokenize(text)\n",
+      "    tweet = [lmtzr.lemmatize(x.lower()) for x in tokens if len(x) >= 3]\n",
+      "\n",
+      "    # calculate the sentiment score\n",
+      "    score = 0\n",
+      "    for word in tweet:\n",
+      "        if word in positive_words:\n",
+      "            score = score + 1\n",
+      "        if word in negative_words:\n",
+      "            score = score - 1\n",
+      "    return score"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 14
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #3.1:** Use the `get_sentiment_score(text)`, the sentiment scoring function defined before, and calculate the sentiment polarity of the tweets in the Twitter JSON dataset used in [tutorial 2](http://nbviewer.ipython.org/url/rizoiu.eu/sna-lab-ipython/tutorial-2-construct-network-real-twitter-dump.ipynb). \n",
+      "The dataset is [available to download here](http://rizoiu.eu/sna-lab-ipython/twitter-dump.json.bz2). \n",
+      "Print the text of the 10 most positive and the 10 most negative tweets. \n",
+      "We consider that a tweet $t_1$ is more positive than another tweet $t_2$ when score of the former is higher than the score of the latter ($score(t_1) > score(t_2)$). \n",
+      "Similarly, a tweet $t_1$ is more negative than $t_2$ when $score(t_1) < score(t_2)$.  \n",
+      "**HINT:** Load the tweets one by one as seen in tutorial 2 and extract the text, which is found in the field *text* of each tweet."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #3.2:** Based on the scores calculated in **Assignment #3.1**, determine the 3 most positive users. A user $u_1$ is more positive than a user $u_2$ if the dataset contains more positive tweets emitted by $u_1$ than tweets emitted by $u_2$. Formally:\n",
+      "$$ positivity(u_1) > positivity(u_2) \\iff \\left| \\left\\{ t \\, \\middle| \\, author(t) = u_1 \\wedge score(t) > 0 \\right\\} \\right| > \\left| \\left\\{ t \\, \\middle| \\, author(t) = u_2 \\wedge score(t) > 0 \\right\\} \\right|$$"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(1 point) Assignment question #3.3:** \n",
+      "We have discussed earlier that our system is fragile to negations: it will score the expression *not beautiful* as positive because it only detects the word beautiful as positive. \n",
+      "More generally, we consider that the token **not** changes the polarity of a given token: **not beautiful** becomes negative, while **not bad** becomes positive.  \n",
+      "Modify the function `get_sentiment_score(text)` to detect the changes of polarity due to the token **not**."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Bonus assignments questions\n",
+      "---\n",
+      "Bonus assignment questions earn you extra marks if you solve this assignment correctly, no penalty is inflicted if you do not solve it. \n",
+      "Note that the total grade of SMA assignments cannot exceed 10 points, therefore the bonus point can only be used to compensate for another question which you did not solve correctly."
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.25 additional points) Bonus question #1.** \n",
+      "Based on the scores calculated in **Assignment #3.1**, plot the temporal evolution of the counts of positive and negative tweets. The date a tweet was emitted is found in the field *created_at*. \n",
+      "Divide the temporal extent of your dataset into 100 timeslices. \n",
+      "The temporal extent of the dataset is from the creation date of the first tweet to the creation date of the last tweet. \n",
+      "Count how many positive and how many negative tweets you have in each timeslice. \n",
+      "Plot these counts on a graphic resembling this one:  \n",
+      "![caption](files/desired-plot.png)  \n",
+      "**HINT:** the graphic above is not based on real data. Your actual curves might **NOT** look like this one. Its purpose is just to show you the expected form of the graphic."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 15
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**(0.25 additional points) Bonus question #2: Polarized communities** We want to know if there are polarized communities in our social graph. Are there closely linked groups of users who have similar sentiment polarities? We calculate the sentiment polarity of a user as the numbre of positive tweets emitted, from which we substract the number of negative tweets. Formally:\n",
+      "$$sentiment\\_polarity(u) = \\left| \\left\\{ t \\, \\middle| \\, author(t) = u \\wedge score(t) > 0 \\right\\} \\right| - \\left| \\left\\{ t \\, \\middle| \\, author(t) = u \\wedge score(t) < 0 \\right\\} \\right| \\enspace.$$  \n",
+      "To visually detect the polarized communities, we want to plot the same graph as in [tutorial 1](http://nbviewer.ipython.org/url/rizoiu.eu/sna-lab-ipython/tutorial-1-construct-social-graph.ipynb) at *Step 3*, but with the colors of nodes representing their polarity: `blue` for a negative polarity and `red` for a positive polarity. \n",
+      "Are nodes colored similarly clustered close together?"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "# code or answer for question. In case of plain text answer, change the type of cell to \"Raw Text\" using the toolbar."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 16
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
